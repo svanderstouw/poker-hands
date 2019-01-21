@@ -1,6 +1,6 @@
 package poker;
 
-public class Card {
+public class Card implements Comparable<Card> {
 
 	private int intValue;
 	private String suit;
@@ -63,9 +63,14 @@ public class Card {
 	}
 	
 	@Override
-	public String toString() {
-		return getValue() + " of " + getSuit();
+	public int compareTo(Card compareThis) {
+		int compareValue = compareThis.getIntValue();
+		return compareValue-this.getIntValue();
 	}
 	
+	@Override
+	public String toString() {
+		return getValue() + " of " + getSuit();
+	}	
 
 }
